@@ -11,7 +11,6 @@
 int _printf(const char *format, ...)
 {
 	int i, printed_chars_count = 0;
-	char letter;
 	int (*print)(va_list);
 	va_list args;
 
@@ -22,10 +21,11 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		letter = format[i];
-
-		if (letter == '%')
+		if (format[i] == '%')
 		{
+			if (format[i + 1] == ' ' || format[i + 1] == '\0')
+				return (-1);
+
 			print = get_print_func(format + (i + 1));
 
 			if (print == NULL)
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(letter);
+			_putchar(format[i]);
 			printed_chars_count++;
 		}
 	}
