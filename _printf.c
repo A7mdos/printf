@@ -11,11 +11,33 @@
 int _printf(const char *format, ...)
 {
 	int i, printed_chars_count = 0;
+	char letter;
+	int (*print)(va_list);
+	va_list args;
+
+	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		_putchar(format[i]);
-		printed_chars_count++;
+		letter = format[i];
+
+		if (letter == '%')
+		{
+			print = get_print_func(format + ++i);
+
+			if (print == NULL)
+			{
+				_printf("  Unlisted specifier");
+				exit(1);
+			}
+
+			printed_chars_count += print(args);
+		}
+		else
+		{
+			_putchar(letter);
+			printed_chars_count++;
+		}
 	}
 
 
