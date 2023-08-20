@@ -25,12 +25,13 @@ int _printf(const char *format, ...)
 		{
 			print = get_print_func(format + ++i);
 
-			if (print == NULL)
-			{
-				_printf("  Unlisted specifier");
-				exit(1);
-			}
-
+			/*
+			* if (print == NULL)
+			* {
+			*	_printf("  Unlisted specifier");
+			*	exit(1);
+			* }
+			*/
 			printed_chars_count += print(args);
 		}
 		else

@@ -31,12 +31,13 @@ int print_s(va_list arg)
 	int i, printed_chars_count = 0;
 
 	str = va_arg(arg, char *);
-
-	if (str == NULL)
-	{
-		_putchar('$');
-		exit(1);
-	}
+	/*
+	* if (str == NULL)
+	* {
+	*	_putchar('$');
+	*	exit(1);
+	* }
+	*/
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
