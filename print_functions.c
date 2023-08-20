@@ -46,3 +46,20 @@ int print_s(va_list arg)
 
 	return (printed_chars_count);
 }
+
+
+/**
+ * print_percent - Prints '%'.
+ *
+ * @arg: A pointer to the character to be printed.
+ *
+ * Return: The number of characters printed (Always 1).
+ */
+int print_percent(va_list arg)
+{
+	UNUSED(arg);
+
+	_putchar('%');
+
+	return (1);
+}

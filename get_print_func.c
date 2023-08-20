@@ -13,6 +13,7 @@ int (*get_print_func(const char *chr_ptr))(va_list)
 	Printer printers[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"%", print_percent},
 		{NULL, NULL}
 	};
 	int i = 0;
