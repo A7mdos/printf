@@ -13,6 +13,10 @@ int (*get_print_func(const char *chr))(va_list);
 int print_c(va_list arg);
 int print_s(va_list arg);
 int print_percent(va_list arg);
+int print_d(va_list arg);
+int print_i(va_list arg);
+
+int print_number(int num);
 
 
 

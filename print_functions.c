@@ -63,3 +63,35 @@ int print_percent(va_list arg)
 
 	return (1);
 }
+
+/**
+ * print_d - Prints an integer.
+ *
+ * @arg: A pointer to the integer to be printed.
+ *
+ * Return: The number of characters printed.
+ */
+int print_d(va_list arg)
+{
+	int d;
+
+	d = va_arg(arg, int);
+
+	return (print_number(d));
+}
+
+/**
+ * print_i - Prints an integer.
+ *
+ * @arg: A pointer to the integer to be printed.
+ *
+ * Return: The number of characters printed.
+ */
+int print_i(va_list arg)
+{
+	int i;
+
+	i = va_arg(arg, int);
+
+	return (print_number(i));
+}
