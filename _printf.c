@@ -26,15 +26,16 @@ int _printf(const char *format, ...)
 
 		if (letter == '%')
 		{
-			print = get_print_func(format + ++i);
+			print = get_print_func(format + (i + 1));
 
 			if (print == NULL)
 			{
-				_printf("  Unlisted specifier");
-				exit(1);
+				_putchar('%');
+				continue;
 			}
 
 			printed_chars_count += print(args);
+			i++;
 		}
 		else
 		{
