@@ -15,6 +15,7 @@ int print_s(va_list arg);
 int print_percent(va_list arg);
 int print_d(va_list arg);
 int print_i(va_list arg);
+int print_b(va_list arg);
 
 int print_number(int num);
 
@@ -24,7 +25,7 @@ int print_number(int num);
  * struct Printer - A struct type defining a printer.
  *
  * @typeSpecifier: A pointer to a character representing a data type.
- * @print: A function pointer to a function that prints
+ * @print: A pointer to a function that prints
  *         a data type corresponding to typeSpecifier.
  */
 struct Printer

@@ -16,6 +16,7 @@ int (*get_print_func(const char *chr_ptr))(va_list)
 		{"%", print_percent},
 		{"d", print_d},
 		{"i", print_i},
+		{"b", print_b},
 		{NULL, NULL}
 	};
 	int i = 0;
