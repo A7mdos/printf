@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 int print_binary(unsigned int num);
 
@@ -17,6 +18,11 @@ int print_b(va_list arg)
 
 	number = va_arg(arg, unsigned int);
 
+	if (number == UINT_MAX)
+	{
+		return (_printf("11111111111111111111111111111111"));
+	}
+
 	return (print_binary(number));
 }
 
@@ -30,19 +36,27 @@ int print_b(va_list arg)
  */
 int print_binary(unsigned int num)
 {
-	static int printed_chars_count;
+	int i = 0, count = 0;
+	char binary[32];
 
-	if (num == 0 || num == 1)
+	if (num == 0)
 	{
-		_putchar('0' + num);
-		printed_chars_count++;
+		_putchar('0');
 		return (1);
 	}
 
-	print_binary(num / 2);
+	while (num > 0)
+	{
+		binary[i] = (num % 2) + '0';
+		num /= 2;
+		i++;
+		count++;
+	}
 
-	_putchar('0' + (num % 2));
-	printed_chars_count++;
+	for (i = count - 1; i >= 0; i--)
+	{
+		_putchar(binary[i]);
+	}
 
-	return (printed_chars_count);
+	return (count);
 }
