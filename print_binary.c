@@ -40,10 +40,10 @@ int print_binary(unsigned int num)
 
 	if (num == 0 || num == 1)
 	{
-		_putchar('0' + num);
 		if (printed_chars_count == 32)
 			return (32);
 
+		_putchar('0' + num);
 		printed_chars_count++;
 		return (1);
 	}
