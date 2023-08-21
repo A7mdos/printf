@@ -36,27 +36,22 @@ int print_b(va_list arg)
  */
 int print_binary(unsigned int num)
 {
-	int i = 0, count = 0;
-	char binary[32];
+	static int printed_chars_count;
 
-	if (num == 0)
+	if (num == 0 || num == 1)
 	{
-		_putchar('0');
+		_putchar('0' + num);
+		if (printed_chars_count == 32)
+			return (32);
+
+		printed_chars_count++;
 		return (1);
 	}
 
-	while (num > 0)
-	{
-		binary[i] = (num % 2) + '0';
-		num /= 2;
-		i++;
-		count++;
-	}
+	print_binary(num / 2);
 
-	for (i = count - 1; i >= 0; i--)
-	{
-		_putchar(binary[i]);
-	}
+	_putchar('0' + (num % 2));
+	printed_chars_count++;
 
-	return (count);
+	return (printed_chars_count);
 }
