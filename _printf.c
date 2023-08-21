@@ -31,6 +31,7 @@ int _printf(const char *format, ...)
 			if (print == NULL)
 			{
 				_putchar('%');
+				printed_chars_count++;
 				continue;
 			}
 
