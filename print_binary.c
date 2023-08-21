@@ -51,6 +51,10 @@ int print_binary(unsigned int num)
 	print_binary(num / 2);
 
 	_putchar('0' + (num % 2));
+
+	if (printed_chars_count == 32)
+		return (32);
+
 	printed_chars_count++;
 
 	return (printed_chars_count);
