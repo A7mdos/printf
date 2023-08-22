@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			if (print == NULL)
 				return (-1);
 
-			added_chars_count += print(args, buffer);
+			added_chars_count = print(args, buffer);
 			buffer += added_chars_count;
 			buffer_chars_count += added_chars_count;
 			i++;
