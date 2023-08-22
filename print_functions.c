@@ -6,7 +6,7 @@
  * @arg: A pointer to the character to be printed.
  * @buffer: A character buffer storing the character to print.
  *
- * Return: The number of characters printed (Always 1).
+ * Return: The number of characters stored to buffer (Always 1).
  */
 int print_c(va_list arg, char *buffer)
 {
@@ -25,7 +25,7 @@ int print_c(va_list arg, char *buffer)
  * @arg: A pointer to the string to be printed.
  * @buffer: A character buffer storing the overall string to print.
  *
- * Return: The number of characters printed.
+ * Return: The number of characters stored to buffer.
  */
 int print_s(va_list arg, char *buffer)
 {
@@ -54,7 +54,7 @@ int print_s(va_list arg, char *buffer)
  * @arg: A pointer to the character to be printed.
  * @buffer: A character buffer storing '%'.
  *
- * Return: The number of characters printed (Always 1).
+ * Return: The number of characters stored to buffer. (Always 1).
  */
 int print_percent(va_list arg, char *buffer)
 {
@@ -71,30 +71,39 @@ int print_percent(va_list arg, char *buffer)
  * @arg: A pointer to the integer to be printed.
  * @buffer: A character buffer storing the overall string to print.
  *
- * Return: The number of characters printed.
+ * Return: The number of characters stored to buffer.
  */
-int print_d(va_list arg, char *buffer)
+int print_di(va_list list, char *buffer)
 {
-	int d;
+	int num, num_copy, digits = 1;
 
-	d = va_arg(arg, int);
+	num = va_arg(list, int);
 
-	return (print_number(d, buffer));
-}
+	if (num < 0)
+	{
+		*buffer = '-';
+		digits++;
 
-/**
- * print_i - Prints an integer.
- *
- * @arg: A pointer to the integer to be printed.
- * @buffer: A character buffer storing the overall string to print.
- *
- * Return: The number of characters printed.
- */
-int print_i(va_list arg, char *buffer)
-{
-	int i;
+		if (num == -2147483648)
+		{
+			*(buffer + 1) = '2';
+			digits++;
+			num = 147483648;
+		}
+		else
+			num = -num;
+	}
 
-	i = va_arg(arg, int);
+	num_copy = num;
 
-	return (print_number(i, buffer));
+	while ((num_copy / 10) > 0)
+	{
+		num_copy /= 10;
+		digits++;
+	}
+
+	buffer += digits - 1;
+	print_number(num, buffer);
+
+	return (digits);
 }
