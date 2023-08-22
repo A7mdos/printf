@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * print_u - Prints an unsigned integer.
@@ -14,6 +15,12 @@ int print_u(va_list arg, char *buffer)
 	int half1_digits_count = 1, half2_digits_count = 1;
 
 	number = va_arg(arg, unsigned int);
+
+	if (number <= INT_MAX)
+	{
+		arg -= sizeof(unsigned int);
+		return(print_di(arg, buffer));
+	}
 
 	number_half1 = number / 10000;
 	number_copy = number_half1;
