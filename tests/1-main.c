@@ -19,8 +19,8 @@ int main(void)
 	 _printf("String:[%s]\n", "I am a string !");
 	 printf("String:[%s]\n", "I am a string !");
 
-	// len = _printf(NULL);
-	// len2 = printf("String:[%s]\n", NULL);
+	 len = _printf(NULL);
+	 len2 = printf("String:[%s]\n", NULL);
 
 	_printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
