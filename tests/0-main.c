@@ -11,3 +11,5 @@ int main(void)
 	int n;
 	 _printf("Hasan Zalago");
 	 _putchar('\n');
+	 _printf("Hassan %s", "Zalago");
+	 _putchar('\n');
