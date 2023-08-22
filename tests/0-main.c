@@ -35,3 +35,6 @@ int main(void)
 	 n = _printf("foo%r");
 	 _putchar('\n');
 	 printf("%d\n", n);
+	 return 0
+}
+
