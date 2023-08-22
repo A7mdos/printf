@@ -21,3 +21,7 @@ int main(void)
 	 _putchar('\n');
 	 printf("Hassan%%%s", "Zalago");
 	 _putchar('\n');
+	 _printf("Hassan %%%%");
+	 _putchar('\n');
+	 printf("Hassan %%%%");
+	 _putchar('\n');
