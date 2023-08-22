@@ -11,14 +11,17 @@
 int _printf(const char *format, ...)
 {
 	int i, printed_chars_count = 0;
-	int (*print)(va_list);
+	int (*print)(va_list, char *);
 	va_list args;
+	char *buffer, *buffer_ptr;
 
 	if (format == NULL)
 		return (-1);
 
-	va_start(args, format);
+	buffer = malloc(sizeof(char) * 1024);
+	buffer_ptr = buffer;
 
+	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -33,7 +36,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 
-			printed_chars_count += print(args);
+			printed_chars_count += print(args, buffer);
 			i++;
 		}
 		else
@@ -43,6 +46,7 @@ int _printf(const char *format, ...)
 		}
 	}
 
-
+	va_end(args);
+	free(buffer_ptr);
 	return (printed_chars_count);
 }

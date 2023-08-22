@@ -1,18 +1,17 @@
 #include "main.h"
 #include <limits.h>
 
-int print_binary(unsigned int num);
-
 
 /**
  * print_b - Prints an unsigned int in binary format.
  *
  * @arg: A pointer to the unsigned int to be printed.
+ * @buffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters (0s and 1s) printed.
  */
 
-int print_b(va_list arg)
+int print_b(va_list arg, char *buffer)
 {
 	unsigned int number;
 
@@ -23,7 +22,7 @@ int print_b(va_list arg)
 		return (_printf("11111111111111111111111111111111"));
 	}
 
-	return (print_binary(number));
+	return (print_binary(number, buffer));
 }
 
 /**
@@ -31,10 +30,11 @@ int print_b(va_list arg)
  *				  in binary format.
  *
  * @num: the unsigned int to be printed.
+ * @buffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters (0s and 1s) printed.
  */
-int print_binary(unsigned int num)
+int print_binary(unsigned int num, char *buffer)
 {
 	static int printed_chars_count;
 
@@ -48,7 +48,7 @@ int print_binary(unsigned int num)
 		return (1);
 	}
 
-	print_binary(num / 2);
+	print_binary(num / 2, buffer);
 
 	_putchar('0' + (num % 2));
 

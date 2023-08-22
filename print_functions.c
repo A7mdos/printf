@@ -4,10 +4,11 @@
  * print_c - Prints a char.
  *
  * @arg: A pointer to the character to be printed.
+ * @buffer: A character buffer storing the character to print.
  *
  * Return: The number of characters printed (Always 1).
  */
-int print_c(va_list arg)
+int print_c(va_list arg, char *buffer)
 {
 	char letter;
 
@@ -22,10 +23,11 @@ int print_c(va_list arg)
  * print_s - Prints a string.
  *
  * @arg: A pointer to the string to be printed.
+ * @buffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters printed.
  */
-int print_s(va_list arg)
+int print_s(va_list arg, char *buffer)
 {
 	char *str;
 	int i, printed_chars_count = 0;
@@ -49,10 +51,11 @@ int print_s(va_list arg)
  * print_percent - Prints '%'.
  *
  * @arg: A pointer to the character to be printed.
+ * @buffer: A character buffer storing '%'.
  *
  * Return: The number of characters printed (Always 1).
  */
-int print_percent(va_list arg)
+int print_percent(va_list arg, char *buffer)
 {
 	UNUSED(arg);
 
@@ -65,30 +68,32 @@ int print_percent(va_list arg)
  * print_d - Prints an integer.
  *
  * @arg: A pointer to the integer to be printed.
+ * @buffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters printed.
  */
-int print_d(va_list arg)
+int print_d(va_list arg, char *buffer)
 {
 	int d;
 
 	d = va_arg(arg, int);
 
-	return (print_number(d));
+	return (print_number(d, buffer));
 }
 
 /**
  * print_i - Prints an integer.
  *
  * @arg: A pointer to the integer to be printed.
+ * @buffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters printed.
  */
-int print_i(va_list arg)
+int print_i(va_list arg, char *buffer)
 {
 	int i;
 
 	i = va_arg(arg, int);
 
-	return (print_number(i));
+	return (print_number(i, buffer));
 }

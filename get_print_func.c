@@ -8,7 +8,7 @@
  *
  * Return: A pointer to the selected function.
  */
-int (*get_print_func(const char *chr_ptr))(va_list)
+int (*get_print_func(const char *chr_ptr))(va_list, char *)
 {
 	Printer printers[] = {
 		{"c", print_c},
