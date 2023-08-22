@@ -20,6 +20,10 @@ int print_di(va_list arg, char *buffer);
 int print_b(va_list arg, char *buffer);
 
 int print_u(va_list arg, char *buffer);
+int print_o(va_list arg, char *buffer);
+int print_x(va_list arg, char *buffer);
+int print_X(va_list arg, char *buffer);
+
 
 
 void print_number(int num, char *buffer);

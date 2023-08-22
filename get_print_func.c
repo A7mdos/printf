@@ -18,6 +18,9 @@ int (*get_print_func(const char *chr_ptr))(va_list, char *)
 		{"i", print_di},
 		{"b", print_b},
 		{"u", print_u},
+		{"o", print_o},
+		{"x", print_x},
+		{"X", print_X},
 		{NULL, NULL}
 	};
 	int i = 0;
