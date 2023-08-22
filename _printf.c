@@ -18,9 +18,7 @@ int _printf(const char *format, ...)
 	buffer = malloc(sizeof(char) * 1024);
 	if (format == NULL || buffer == NULL)
 		return (-1);
-
 	buffer_ptr = buffer;
-
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -28,7 +26,6 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == ' ' || format[i + 1] == '\0')
 				return (-1);
-
 			print = get_print_func(format + (i + 1));
 			if (print == NULL)
 			{
@@ -36,7 +33,6 @@ int _printf(const char *format, ...)
 				buffer_chars_count++;
 				continue;
 			}
-
 			added_chars_count = print(args, buffer);
 			buffer += added_chars_count;
 			buffer_chars_count += added_chars_count;
