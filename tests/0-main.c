@@ -25,3 +25,10 @@ int main(void)
 	 _putchar('\n');
 	 printf("Hassan %%%%");
 	 _putchar('\n');
+	 n = printf("%s% ", NULL);
+	 _putchar('\n');
+	 printf("%d\n", n);
+
+	 n = _printf("%r");
+	 _putchar('\n');
+	 printf("%d\n", n);
