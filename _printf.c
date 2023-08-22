@@ -15,10 +15,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	char *buffer, *buffer_ptr;
 
-	if (format == NULL)
+	buffer = malloc(sizeof(char) * 1024);
+	if (format == NULL || buffer == NULL)
 		return (-1);
 
-	buffer = malloc(sizeof(char) * 1024);
 	buffer_ptr = buffer;
 
 	va_start(args, format);
@@ -31,7 +31,11 @@ int _printf(const char *format, ...)
 
 			print = get_print_func(format + (i + 1));
 			if (print == NULL)
-				return (-1);
+			{
+				buffer += print_percent(args, buffer);
+				buffer_chars_count++;
+				continue;
+			}
 
 			added_chars_count = print(args, buffer);
 			buffer += added_chars_count;
