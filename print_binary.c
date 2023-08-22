@@ -11,11 +11,11 @@
  * Return: The number of characters (0s and 1s) stored to buffer.
  */
 
-int print_b(va_list list, char *buffer)
+int print_b(va_list arg, char *buffer)
 {
 	unsigned int number, number_copy, digits = 1;
 
-	number = va_arg(list, unsigned int);
+	number = va_arg(arg, unsigned int);
 	number_copy = number;
 
 	while (number_copy / 2)

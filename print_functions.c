@@ -66,18 +66,18 @@ int print_percent(va_list arg, char *buffer)
 }
 
 /**
- * print_d - Prints an integer.
+ * print_di - Prints an integer.
  *
  * @arg: A pointer to the integer to be printed.
  * @buffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters stored to buffer.
  */
-int print_di(va_list list, char *buffer)
+int print_di(va_list arg, char *buffer)
 {
 	int num, num_copy, digits = 1;
 
-	num = va_arg(list, int);
+	num = va_arg(arg, int);
 
 	if (num < 0)
 	{
