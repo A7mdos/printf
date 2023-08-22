@@ -19,7 +19,6 @@ int print_di(va_list arg, char *buffer);
 int print_b(va_list arg, char *buffer);
 
 void print_number(int num, char *buffer);
-int print_binary(unsigned int num, char *buffer);
 
 
 

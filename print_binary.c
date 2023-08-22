@@ -6,56 +6,34 @@
  * print_b - Prints an unsigned int in binary format.
  *
  * @arg: A pointer to the unsigned int to be printed.
- * @buffer: A character buffer storing the overall string to print.
+ * @buffer: A character buffer to store the binary number.
  *
- * Return: The number of characters (0s and 1s) printed.
+ * Return: The number of characters (0s and 1s) stored to buffer.
  */
 
-int print_b(va_list arg, char *buffer)
+int print_b(va_list list, char *buffer)
 {
-	unsigned int number;
+	unsigned int number, number_copy, digits = 1;
 
-	number = va_arg(arg, unsigned int);
+	number = va_arg(list, unsigned int);
+	number_copy = number;
 
-	if (number == UINT_MAX)
+	while (number_copy / 2)
 	{
-		return (_printf("11111111111111111111111111111111"));
+		number_copy /= 2;
+		digits++;
 	}
 
-	return (print_binary(number, buffer));
-}
+	buffer += digits - 1;
 
-/**
- * print_binary - prints an unsigned integer, using only _putchar function,
- *				  in binary format.
- *
- * @num: the unsigned int to be printed.
- * @buffer: A character buffer storing the overall string to print.
- *
- * Return: The number of characters (0s and 1s) printed.
- */
-int print_binary(unsigned int num, char *buffer)
-{
-	static int printed_chars_count;
-
-	if (num == 0 || num == 1)
+	while (number / 2)
 	{
-		if (printed_chars_count == 32)
-			return (32);
-
-		_putchar('0' + num);
-		printed_chars_count++;
-		return (1);
+		*buffer = (number % 2) + '0';
+		buffer--;
+		number /= 2;
 	}
 
-	print_binary(num / 2, buffer);
+	*buffer = (number % 2) + '0';
 
-	_putchar('0' + (num % 2));
-
-	if (printed_chars_count == 32)
-		return (32);
-
-	printed_chars_count++;
-
-	return (printed_chars_count);
+	return (digits);
 }
