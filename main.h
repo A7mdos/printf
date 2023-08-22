@@ -12,11 +12,15 @@ int _printf(const char *format, ...);
 
 int (*get_print_func(const char *chr))(va_list, char *);
 
+
 int print_c(va_list arg, char *buffer);
 int print_s(va_list arg, char *buffer);
 int print_percent(va_list arg, char *buffer);
 int print_di(va_list arg, char *buffer);
 int print_b(va_list arg, char *buffer);
+
+int print_u(va_list arg, char *buffer);
+
 
 void print_number(int num, char *buffer);
 
