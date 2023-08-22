@@ -17,3 +17,7 @@ int main(void)
 	 _putchar('\n');
 	 _printf("Hassan %c %s", 'Z', "zalago");
 	 _putchar('\n');
+	 _printf("Hassan%%%s", "Zalago");
+	 _putchar('\n');
+	 printf("Hassan%%%s", "Zalago");
+	 _putchar('\n');
