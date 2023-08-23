@@ -12,8 +12,7 @@ int print_c(va_list arg, char *buffer)
 {
 	char letter;
 
-	letter = va_arg(arg, int);
-	*buffer = letter;
+	*buffer = va_arg(arg, int);
 
 	return (1);
 }
