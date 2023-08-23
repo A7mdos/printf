@@ -24,6 +24,8 @@ int print_o(va_list arg, char *buffer);
 int print_x(va_list arg, char *buffer);
 int print_X(va_list arg, char *buffer);
 
+int print_rev(va_list arg, char *buffer);
+
 
 
 void print_number(int num, char *buffer);
