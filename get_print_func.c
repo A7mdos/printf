@@ -22,6 +22,7 @@ int (*get_print_func(const char *chr_ptr))(va_list, char *)
 		{"x", print_x},
 		{"X", print_X},
 		{"r", print_rev},
+		{"R", print_rot13},
 		{NULL, NULL}
 	};
 	int i = 0;

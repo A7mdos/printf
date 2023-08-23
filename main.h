@@ -25,6 +25,7 @@ int print_x(va_list arg, char *buffer);
 int print_X(va_list arg, char *buffer);
 
 int print_rev(va_list arg, char *buffer);
+int print_rot13(va_list list, char *buffer);
 
 
 
