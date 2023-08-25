@@ -8,21 +8,21 @@
  *
  * Return: A pointer to the selected function.
  */
-int (*get_print_func(const char *chr_ptr))(va_list, char *)
+int (*get_print_func(const char *chr_ptr))(va_list, Buffer *)
 {
 	Printer printers[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"%", print_percent},
-		{"d", print_di},
-		{"i", print_di},
-		{"b", print_b},
-		{"u", print_u},
-		{"o", print_o},
-		{"x", print_x},
-		{"X", print_X},
+		// {"c", print_c},
+		// {"s", print_s},
+		// {"%", print_percent},
+		// {"d", print_di},
+		// {"i", print_di},
+		// {"b", print_b},
+		// {"u", print_u},
+		// {"o", print_o},
+		// {"x", print_x},
+		// {"X", print_X},
 		{"r", print_rev},
-		{"R", print_rot13},
+		// {"R", print_rot13},
 		{NULL, NULL}
 	};
 	int i = 0;

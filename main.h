@@ -7,47 +7,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int _putchar(char c);
-int _printf(const char *format, ...);
-
-int (*get_print_func(const char *chr))(va_list, char *);
-
-
-int print_c(va_list arg, char *buffer);
-int print_s(va_list arg, char *buffer);
-int print_percent(va_list arg, char *buffer);
-int print_di(va_list arg, char *buffer);
-int print_b(va_list arg, char *buffer);
-
-int print_u(va_list arg, char *buffer);
-int print_o(va_list arg, char *buffer);
-int print_x(va_list arg, char *buffer);
-int print_X(va_list arg, char *buffer);
-
-int print_rev(va_list arg, char *buffer);
-int print_rot13(va_list list, char *buffer);
-
-
-
-void print_number(int num, char *buffer);
-
-
-
-/**
- * struct Printer - A struct type defining a printer.
- *
- * @typeSpecifier: A pointer to a character representing a data type.
- * @print: A pointer to a function that prints
- *         a data type corresponding to typeSpecifier.
- */
-struct Printer
-{
-	char *typeSpecifier;
-	int (*print)(va_list arg, char *buffer);
-
-};
-typedef struct Printer Printer;
-
 
 /**
  * struct Buffer - A struct type defining a buffer. Used to store characters
@@ -72,5 +31,51 @@ struct Buffer
 };
 typedef struct Buffer Buffer;
 
+
+/**
+ * struct Printer - A struct type defining a printer.
+ *
+ * @typeSpecifier: A pointer to a character representing a data type.
+ * @print: A pointer to a function that prints
+ *         a data type corresponding to typeSpecifier.
+ */
+struct Printer
+{
+	char *typeSpecifier;
+	int (*print)(va_list arg, Buffer *outputBuffer);
+
+};
+typedef struct Printer Printer;
+
+
+
+
+int _putchar(char c);
+int _printf(const char *format, ...);
+
+Buffer *init_buffer();
+int copy_to_buffer(Buffer *outputBuffer, char *src, unsigned int n);
+void free_buffer(Buffer *outputBuffer);
+
+
+int (*get_print_func(const char *chr))(va_list, Buffer *);
+
+int print_c(va_list arg, Buffer *outputBuffer);
+int print_s(va_list arg, Buffer *outputBuffer);
+int print_percent(va_list arg, Buffer *outputBuffer);
+int print_di(va_list arg, Buffer *outputBuffer);
+int print_b(va_list arg, Buffer *outputBuffer);
+
+int print_u(va_list arg, Buffer *outputBuffer);
+int print_o(va_list arg, Buffer *outputBuffer);
+int print_x(va_list arg, Buffer *outputBuffer);
+int print_X(va_list arg, Buffer *outputBuffer);
+
+int print_rev(va_list arg, Buffer *outputBuffer);
+int print_rot13(va_list arg, Buffer *outputBuffer);
+
+
+
+void print_number(int num, Buffer *outputBuffer);
 
 #endif

@@ -1,58 +1,35 @@
 #include "main.h"
 
-int _strlen(char *s);
-
 /**
- * print_rev - Prints a string, in reverse.
+ * print_rev - Prints a string, in reverse, into a buffer.
  *
  * @arg: A pointer to the string to be printed.
- * @buffer: A character buffer storing the overall string to print.
+ * @outputBuffer: A Buffer struct containing a char array.
  *
- * Return: The number of characters stored to buffer.
+ * Return: The number of characters stored to the buffer.
  */
-int print_rev(va_list arg, char *buffer)
+int print_rev(va_list arg, Buffer *outputBuffer)
 {
 	char *str;
-	int i, printed_chars_count = 0, str_length;
+	char chr;
+	int i, printed_chars_count = 0, str_length = 0;
 
 	str = va_arg(arg, char *);
 
 	if (str == NULL)
 	{
 		str = "(null)";
-		for (i = 0; str[i] != '\0'; i++)
-		{
-			*buffer = str[i];
-			buffer++;
-		}
-		return (6);
+		return (copy_to_buffer(outputBuffer, str, 6));
 	}
 
+	while (str[str_length] != '\0')
+		str_length++;
 
-	str_length = _strlen(str);
 	for (i = str_length - 1; i >= 0; i--)
 	{
-		*buffer = str[i];
-		buffer++;
-		printed_chars_count++;
+		chr = str[i];
+		printed_chars_count += copy_to_buffer(outputBuffer, &chr, 1);
 	}
 
 	return (printed_chars_count);
-}
-
-/**
- * _strlen - calculates the length of a string
- *
- * @s: the string to get the length of
- *
- * Return: the length of the string
- */
-int _strlen(char *s)
-{
-	int i = 0, length = 0;
-
-	while (s[i++] != '\0')
-		length++;
-
-	return (length);
 }
