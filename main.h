@@ -57,6 +57,9 @@ Buffer *init_buffer();
 int copy_to_buffer(Buffer *outputBuffer, char *src, unsigned int n);
 void free_buffer(Buffer *outputBuffer);
 
+int convert_sbase(Buffer *output, int number, char *base);
+int convert_ubase(Buffer *output, unsigned long int number, char *base);
+
 
 int (*get_print_func(const char *chr))(va_list, Buffer *);
 
