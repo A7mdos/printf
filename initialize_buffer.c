@@ -21,7 +21,7 @@ Buffer *init_buffer()
 		return (NULL);
 	}
 
-	outputBuffer->start = outputBuffer->ptr;
+	outputBuffer->ptr = outputBuffer->start;
 	outputBuffer->length = 0;
 
 	return (outputBuffer);
