@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _printf - A recreation of the C standard library function, `printf`.
@@ -34,9 +33,7 @@ int _printf(const char *format, ...)
 			if (print == NULL)
 			{
 				chr = '%';
-				// printed_chars_count += copy_to_buffer(outputBuffer, &chr, 1);
-				printf("copy 1\n");
-				printed_chars_count++;
+				printed_chars_count += copy_to_buffer(outputBuffer, &chr, 1);
 				continue;
 			}
 			printed_chars_count += print(args, outputBuffer);
@@ -45,9 +42,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			chr = format[i];
-			// printed_chars_count += copy_to_buffer(outputBuffer, &chr, 1);
-			printf("copy 2\n");
-			printed_chars_count++;
+			printed_chars_count += copy_to_buffer(outputBuffer, &chr, 1);
 		}
 	}
 	write(1, outputBuffer->start, outputBuffer->length);
