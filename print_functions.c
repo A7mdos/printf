@@ -54,7 +54,7 @@ int print_s(va_list arg, Buffer *outputBuffer)
 int print_percent(va_list arg, Buffer *outputBuffer)
 {
 	char letter;
-	
+
 	UNUSED(arg);
 
 
