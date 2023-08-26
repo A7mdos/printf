@@ -22,7 +22,7 @@ int convert_sbase(Buffer *outputBuffer, int number, char *base)
 		bytes_count += convert_sbase(outputBuffer, number / len, base);
 
 	digit = base[(number < 0 ? -1 : 1) * (number % len)];
-	_memcpy(outputBuffer, &digit, 1);
+	copy_to_buffer(outputBuffer, &digit, 1);
 
 	return (bytes_count);
 }
@@ -49,7 +49,7 @@ int convert_ubase(Buffer *outputBuffer, unsigned long int number, char *base)
 		bytes_count += convert_ubase(outputBuffer, number / len, base);
 
 	digit = base[(number % len)];
-	_memcpy(outputBuffer, &digit, 1);
+	copy_to_buffer(outputBuffer, &digit, 1);
 
 	return (bytes_count);
 }
