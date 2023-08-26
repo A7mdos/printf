@@ -4,7 +4,7 @@
  * print_c - Prints a char.
  *
  * @arg: A pointer to the character to be printed.
- * @buffer: A character buffer storing the character to print.
+ * @outputBuffer: A character buffer storing the character to print.
  *
  * Return: The number of characters stored to buffer (Always 1).
  */
@@ -22,7 +22,7 @@ int print_c(va_list arg, Buffer *outputBuffer)
  * print_s - Prints a string.
  *
  * @arg: A pointer to the string to be printed.
- * @buffer: A character buffer storing the overall string to print.
+ * @outputBuffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters stored to buffer.
  */
@@ -47,7 +47,7 @@ int print_s(va_list arg, Buffer *outputBuffer)
  * print_percent - Prints '%'.
  *
  * @arg: A pointer to the character to be printed.
- * @buffer: A character buffer storing '%'.
+ * @outputBuffer: A character buffer storing '%'.
  *
  * Return: The number of characters stored to buffer. (Always 1).
  */
@@ -55,7 +55,9 @@ int print_percent(va_list arg, Buffer *outputBuffer)
 {
 	UNUSED(arg);
 
-	char letter = '%';
+	char letter;
+
+	letter = '%';
 
 	return (copy_to_buffer(outputBuffer, &letter, 1));
 }
@@ -64,7 +66,7 @@ int print_percent(va_list arg, Buffer *outputBuffer)
  * print_di - Prints an integer.
  *
  * @arg: A pointer to the integer to be printed.
- * @buffer: A character buffer storing the overall string to print.
+ * @outputBuffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters stored to buffer.
  */

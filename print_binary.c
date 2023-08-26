@@ -6,7 +6,7 @@
  * print_b - Prints an unsigned int in binary format.
  *
  * @arg: A pointer to the unsigned int to be printed.
- * @buffer: A character buffer to store the binary number.
+ * @outputBuffer: A character buffer to store the binary number.
  *
  * Return: The number of characters (0s and 1s) stored to buffer.
  */

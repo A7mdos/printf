@@ -4,7 +4,7 @@
  * print_rot13 - Print a string, using rot13 encryption cipher.
  *
  * @arg: A pointer to the string to be printed.
- * @buffer: A character buffer storing the overall string to print.
+ * @outputBuffer: A character buffer storing the overall string to print.
  *
  * Return: The number of characters stored to buffer.
  */
